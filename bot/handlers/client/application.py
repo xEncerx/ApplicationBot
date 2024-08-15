@@ -142,7 +142,7 @@ async def confirmation(call: types.CallbackQuery, state: FSMContext) -> None:
 		# Удаляем заявку
 		await application.delete(call.from_user.id)
 		await text_editor(
-			TEXT.welcome,
+			TEXT.welcome.format(name=call.from_user.first_name),
 			event=call,
 			reply_markup=nav.create_application()
 		)
